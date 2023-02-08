@@ -13,11 +13,11 @@ export function Content() {
   // console.log("Ed",Employeedata)
   return (
     <div className='content_container'>
-      <School studentdata={studentdata} Teacherdata={Teacherdata} Employeedata={Employeedata} />
+      {/* <School studentdata={studentdata} Teacherdata={Teacherdata} Employeedata={Employeedata} /> */}
       <div className='Addcontainer'>
-        <Addstudent setstudentdata={setstudentdata} studentdata={studentdata} title="Add Student" />
-        <Addstudent setstudentdata={setTeacherdata} studentdata={Teacherdata} title="Add Teachers" />
-        <Addstudent setstudentdata={setEmployeedata} studentdata={Employeedata} title="Add Employee" />
+        <Addstudent setstudentdata={setstudentdata} studentdata={studentdata}  id="001" title="Add Student" />
+        {/* <Addstudent setstudentdata={setTeacherdata} studentdata={Teacherdata} id="002"  title="Add Teachers" />
+        <Addstudent setstudentdata={setEmployeedata} studentdata={Employeedata} id="003"title="Add Employee" /> */}
       </div>
     </div>
   );

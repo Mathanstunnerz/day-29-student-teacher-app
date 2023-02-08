@@ -25,16 +25,17 @@ import { Teacher } from './Teacher';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+
+import { QueryClient,QueryClientProvider } from "@tanstack/react-query";
 export const con = createContext()
 export const con2 = createContext()
 export const con3 = createContext()
+
 function App() {
   const [count, setCount] = useState(0)
-  const [studentdata, setstudentdata] = useState([{
-    rollnumber: "23",
-    name: "mathan",
-    gender: "male",
-  }])
+
+
+  const [studentdata, setstudentdata] = useState([])
   const [Teacherdata,setTeacherdata] = useState([])
   const [Employeedata,setEmployeedata] = useState([])
 
@@ -43,18 +44,19 @@ function App() {
     display: studentdata.length === 0 ? 'block' : 'none'
   }
   return (
+  
     <div className="App">
 
       <Navbar />
 
      
-     <h2 style={styles2} className='empty'>Students details is empty</h2>
+     {/* <h2 style={styles2} className='empty'>Students details is empty</h2> */}
      <con.Provider value={[studentdata, setstudentdata]} >
      <con2.Provider value={[Teacherdata,setTeacherdata] } >
      <con3.Provider value={[Employeedata,setEmployeedata] } >
       <Routes>
-        <Route path="/" element={ <Content />} />
-        <Route path="Student" element={<Student/>} />
+        <Route path="/" element={ <Student/>} />
+        <Route path="Student" element={<Content />} />
         <Route path="Teacher" element={<Teacher/>} />
         <Route path="Employe" element={<Employe/>} />
       </Routes>
@@ -62,6 +64,7 @@ function App() {
       </con2.Provider>
       </con.Provider>
     </div>
+ 
   )
 }
 function Employe(){
@@ -207,6 +210,10 @@ function Navbar(){
   return(
     <div className='navcontain'>
     <div className='navbarcontainer'>
+      <div className='school_title'>
+      <h1 className='logotext'>Dhee</h1>
+      <h5 className='logotext'>public school</h5>
+      </div>
        <div className='screachbar'>
        <Search>
             <SearchIconWrapper>
@@ -221,9 +228,9 @@ function Navbar(){
     </div>
     <div className='Router_container'>
     <div onClick={()=>navigate("/")}className='router_title'>Home          </div>
-    <div onClick={()=>navigate("Student")}className='router_title'>Student </div>
-    <div onClick={()=>navigate("Teacher")}className='router_title'>Teacher       </div>
-    <div onClick={()=>navigate("Employe")}className='router_title'>Employee      </div>
+    <div onClick={()=>navigate("Student")}className='router_title'>Add Student </div>
+    {/* <div onClick={()=>navigate("Teacher")}className='router_title'>Teacher       </div>
+    <div onClick={()=>navigate("Employe")}className='router_title'>Employee      </div> */}
     </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect} from 'react'
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import Radio from '@mui/material/Radio';
@@ -8,13 +8,16 @@ import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion } from "framer-motion";
-export function Addstudent({ setstudentdata, studentdata,title }) {
+import { useNavigate } from "react-router-dom";
+const API = 'https://63d75fd7afbba6b7c93bed4b.mockapi.io/matedata'
+export function Addstudent({ setstudentdata, studentdata,title,id}) {
+  const navigate = useNavigate();
   const [studentname, setstudentname] = useState();
   const [rollnum, setrollnum] = useState();
   const [gender1, setgender] = useState();
   const [visible, setvisible] = useState(false);
   const [fill, setfill] = useState(false);
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
     if (rollnum !== undefined && studentname !== undefined && gender1 !== undefined) {
 
@@ -23,12 +26,21 @@ export function Addstudent({ setstudentdata, studentdata,title }) {
         if (rollnum !== '' && studentname !== '' && gender1 !== '') {
           if (studentname !== '') {
             const student = {
-              rollnumber: rollnum,
-              name: studentname,
-              gender: gender1,
-            };
-            const adddata = [...studentdata, student];
-            setstudentdata(adddata);
+             
+                rollnumber: rollnum,
+                name: studentname,
+                gender: gender1
+            
+             };
+     
+             await fetch(`${API}`,{
+                method: 'POST',
+                body: JSON.stringify(student),
+                headers: { 'Content-Type': 'application/json' }
+              })
+              navigate("/");
+             
+           
             setvisible(false);
             setfill(false);
             setstudentname('');
@@ -81,7 +93,7 @@ export function Addstudent({ setstudentdata, studentdata,title }) {
 
         </div>
 
-        <Button type='submit' variant="contained">submit</Button>
+        <Button type='submit' variant="outlined">submit</Button>
       </form>
     </div>
   );

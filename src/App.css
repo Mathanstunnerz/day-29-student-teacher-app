@@ -2,7 +2,7 @@
   padding: 0%;
   width: 100%;
   min-height: 100vh;
-  background: rgb(214, 214, 214);
+  background: rgb(179, 224, 255);
 }
 /* .navcontain{
   width: 100%;
@@ -10,14 +10,24 @@
 .navbarcontainer{
   width: 100%;
   height: 10vh;
-  background: linear-gradient(rgb(179, 179, 179),rgb(211, 211, 211),rgb(255, 255, 255));
+  background: linear-gradient(rgb(178, 227, 255),rgb(211, 211, 211),rgb(138, 175, 255));
    display: flex;
-   justify-content: end;
+   justify-content: space-between;
    align-items: center;
+}
+.school_title{
+  color: rgb(0, 74, 104);
+  padding-left: 10px;
+  width: 100%;
+  height: 90%;
+}
+.logotext{
+  padding: 0%;
+  margin: 0%;
 }
 .content_container{
 width: 100%;
-background: rgb(214, 214, 214);
+background: rgb(179, 224, 255);
 min-height: 100vh;
 display: flex;
 align-items: center;
@@ -76,7 +86,7 @@ flex-direction: column;
 .addstudent_container{
   width: 300px;
   height: fit-content;
-  background-color: rgb(255, 255, 255);
+background-color: white;
   border: 0.2px solid rgb(163, 163, 163);
 }
 .Addcontainer{
@@ -105,7 +115,10 @@ flex-direction: column;
   text-align: center;
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .Router_container{
   width: 100%;
@@ -118,7 +131,7 @@ flex-direction: column;
   width: 100%;
   margin: 0%;
   text-align: center;
-  background: radial-gradient(rgb(136, 136, 136),rgb(206, 205, 205),rgba(255,255,255,1));
+  background: radial-gradient(rgb(147, 255, 228),rgb(165, 189, 255),rgb(171, 238, 255));
   cursor: pointer;
 }
 .student_list_container{
@@ -142,23 +155,31 @@ align-items: center;
   height: fit-content;
   display:  flex;
   justify-content: space-around;
+  height: 100%;
+  align-items: center;
+  background: linear-gradient(rgb(255, 255, 255),rgb(138, 175, 255));
 }
 .student_con{
   padding-top: 20px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); */
   justify-items: center;
-
+gap:10px
 }
 .student_card{
-  width: 200px;
-  height: fit-content;
-  background-color: rgb(255, 255, 255);
-  border: 0.2px solid rgb(141,198,169);
-  border-radius: 5px;
-
- 
+  width: 95%;
+  height: 50px;
+  background-color: rgb(198, 238, 255);
+   box-shadow: 0.2px 0.3px 3px;
+  /* border-radius: 5px; */
+  /* background: linear-gradient(rgb(178, 227, 255),rgb(209, 209, 209),rgb(138, 175, 255)); */
+  /* border: 0.2px solid rgb(0, 0, 0); */
+}
+.student_car{
+  width: 95%;
+  height: 50px;
+  box-shadow: 0.2px 0.3px 3px;
 }
 .empty{
   text-align: center;
@@ -167,4 +188,21 @@ align-items: center;
   width: 100%;
   height: 500px;
   background-color: aqua;
+}
+.td_name{
+  width: 40%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 10px;
+  border-left: 0.2px solid rgb(177, 177, 177);
+  border-right:0.2px solid rgb(177, 177, 177);
+  background: linear-gradient(rgb(255, 255, 255),rgb(138, 175, 255));
+}
+.td_gender{
+ font-family: Arial, Helvetica, sans-serif;
+
+  width: 25%;
+  padding-left: 10px;
+  border-right:0.2px solid rgb(177, 177, 177);
+  background: linear-gradient(rgb(255, 255, 255),rgb(138, 175, 255));
+
 }
